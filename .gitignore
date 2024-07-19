@@ -1,0 +1,12 @@
+# DVC managed files
+/data/census.csv
+
+# DVC cache directory
+/.dvc/cache
+
+# DVC temporary files
+/.dvc/tmp
+
+# Other files you want Git to ignore
+*.log
+*.tmp
