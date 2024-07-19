@@ -1,4 +1,4 @@
 [core]
     remote = storage
 ['remote "storage"']
-    url = gdrive://1Ncw1lyIib7lchd78o-5kB3rm3aIWsB7C/udacity_mlops_3
+    url = gdrive://1Ncw1lyIib7lchd78o-5kB3rm3aIWsB7C
