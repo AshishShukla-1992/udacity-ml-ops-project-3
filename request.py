@@ -23,7 +23,7 @@ data = {"age": 52,
 
 
 response = requests.post(
-    "http://127.0.0.1:8000/predict", data=json.dumps(data))
+    "https://udacity-ml-ops-project-3.onrender.com/predict", data=json.dumps(data))
 
 print(response.status_code)
 print(response.json())
