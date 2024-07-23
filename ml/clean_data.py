@@ -19,6 +19,6 @@ def cleaned_data():
     df = df.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
 
     # Save the cleaned DataFrame to a new CSV file
-    df.to_csv('data/cleaned_census_income.csv', index=False)
+    df.to_csv('data/cleaned_data.csv', index=False)
 
     return df

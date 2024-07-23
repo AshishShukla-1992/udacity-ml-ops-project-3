@@ -7,6 +7,7 @@ import pytest
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 from ml.data import process_data
+from ml.clean_data import cleaned_data
 from ml.model import train_model
 
 cat_features = [
@@ -21,16 +22,15 @@ cat_features = [
 ]
 
 
-@pytest.fixture(name='cleaned_data')
-def cleaned_data():
+@pytest.fixture(name='data')
+def data():
     """
     This is a fixture for loading cleaned data and will be used by other tests.
 
     Yields:
         pd.Dataframe : Cleaned data 
     """
-    yield pd.read_csv('data/cleaned_census_income.csv')
-
+    yield cleaned_data()
 
 def test_model():
     """
@@ -40,26 +40,26 @@ def test_model():
     assert isinstance(model, RandomForestClassifier)
 
 
-def test_cleaned_data(cleaned_data):
+def test_data(data):
     """
     Test case to check if the cleaned data is loaded properly
 
     Args:
-        cleaned_data (pd.Dataframe): Cleaned Data from the fixture
+        data (pd.Dataframe): Cleaned Data from the fixture
     """
-    assert cleaned_data.shape[0] > 0 and cleaned_data.shape[1] > 0
+    assert data.shape[0] > 0 and data.shape[1] > 0
 
 
-def test_ml_training(cleaned_data):
+def test_ml_training(data):
     """
     Test case to check after the cleaned data is loaded
     model is trained propely or not.
 
     Args:
-        cleaned_data (pd.Dataframe): Cleaned Data from the fixture
+        data (pd.Dataframe): Cleaned Data from the fixture
     """
     X_train, y_train, encoder, lb = process_data(
-        cleaned_data, categorical_features=cat_features, label="salary", training=True)
+        data, categorical_features=cat_features, label="salary", training=True)
     model = train_model(X_train, y_train)
     assert model is not None
     assert encoder is not None
