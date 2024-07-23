@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python # Name of an action that sets up Python.
       uses: actions/setup-python@v3 # A pre-built GitHub Action that sets up a Python environment.
       with:
-        python-version: 3.8.19
+        python-version: 3.8
 
     - name: Install dependencies
       run: |
