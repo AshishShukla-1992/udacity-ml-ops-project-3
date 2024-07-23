@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.8] # Change to your Python version
+        python-version: [3.8.19] # Change to your Python version
 
     steps:
     - name: Checkout repository
