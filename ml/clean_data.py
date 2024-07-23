@@ -4,7 +4,7 @@ import numpy as np
 
 def cleaned_data():
     # Load the data
-    df = pd.read_csv('data/census.csv', sep=',\s', engine='python')
+    df = pd.read_csv('data/census_raw.csv', sep=',\s', engine='python')
 
     # Display the first few rows of the DataFrame to verify that it loaded correctly
     df.head()
