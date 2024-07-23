@@ -1,17 +1,17 @@
 # Script to train machine learning model.
 
 from sklearn.model_selection import train_test_split
-import ml.clean_data
+from ml.clean_data import cleaned_data
 from ml.data import process_data
 from ml.model import train_model, inference,compute_model_metrics,process_slices
 import logging
 import joblib
 
 # log config 
-logging.basicConfig(filename='../logs/log',level=logging.INFO,filemode='w')
+logging.basicConfig(filename='logs/log',level=logging.INFO,filemode='w')
 
 # Add code to load in the data.
-data = clean_data.cleaned_data()
+data = cleaned_data()
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.20)
